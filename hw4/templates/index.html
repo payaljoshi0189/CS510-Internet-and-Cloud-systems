@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class = "container">
+  <h2>Entries</h2>
+<table border = "1" width="100%">
+  <tr>
+    <th>Movie Name</th>
+    <th>Year released</th>
+    <th>Genre</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Reviewer</th>
+  </tr>
+  
+  {% for review in reviews %}
+  <tr>
+      <td>{{review.movie_name }}</td>
+      <td>{{review.year_released }}</td>
+      <td>{{review.genre}}</td>
+      <td>{{review.rating}}</td>
+      <td>{{review.review}}</td>
+      <td>{{review.reviewer}}</td>
+  </tr>
+	{% endfor %}
+</table>
+</div>
+{% endblock %}

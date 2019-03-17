@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class= "navbar navbar-expand-md navbar-dark bg-dark">
+			<a class = "navbar-brand" href="{{ url_for('home') }}">Movie Review</a>
+		<div class = "navbar-collapse collapse" id = "navbar-items">
+			<ul class = "navbar-nav mr-auto">
+				<li class= "nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+				<li class= "nav-item active"><a class="nav-link" href="{{ url_for('list') }}">List reviews</a></li>
+				<li class= "nav-item"><a class="nav-link" href="{{ url_for('add') }}">Submit a review</a></li>
+				<li class = "nav-item"><a class="nav-link" href="{{ url_for('upload_photo') }}">Upload a photo</a></li>
+			</ul>
+		</div>	
+</nav>
+
+<div class = "container">
+  <h2>Entries</h2>
+<table border = "1" width="100%">
+  <tr>
+    <th>Movie Name</th>
+    <th>Year Released</th>
+    <th>Genre</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Reviewer</th>
+    <th>Recommendation</th>
+  </tr>
+  
+  {% for entry in entries %}
+  <tr>
+      <td>{{entry.movie_name}}</td>
+      <td>{{entry.year_released}}</td>
+      <td>{{entry.genre}}</td>
+      <td>{{entry.rating}}</td>
+      <td>{{entry.review}}</td>
+      <td>{{entry.reviewer}}</td>
+      {% if entry.sentiment >= 0.5%}
+      	<td><img src="{{ url_for('static', filename='Thumbs_Up.png')}}" alt="" width="40px", height="40px"></td>
+      {% elif entry.sentiment < 0.5 %}
+      	<td><img src="{{ url_for('static', filename='Thumbs_Down.png')}}" alt="" width="40px", height="40px"></td>
+      {% else %}
+      	<td>Recommendation not available</td>
+      {% endif %}
+  </tr>
+	{% endfor %}
+</table>
+</div>
+{% endblock %}
+

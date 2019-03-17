@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Welcome to movie reviews</h2>
+
+<form action="{{ url_for('index') }}" method = "GET">
+  <p><input type="submit" value="View reviews" class = "btn btn-primary"></p>
+</form>
+
+<form action="{{ url_for('showReviewForm') }}" method = "GET">
+  <p><input type="submit" value="Submit a review" class = "btn btn-primary"></p>
+</form>
+
+{% endblock %}

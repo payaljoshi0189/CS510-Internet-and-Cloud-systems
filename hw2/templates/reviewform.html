@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class = "container" align = "center">Movie Review Form </h2>
+    <form action="{{ url_for('submitRating') }}" method="post">
+      <div class = "form-group container">
+	<label for = "moviename"> Movie Name: </label>
+	<input type = "text" class = "form-control" id = "moviename" name = "moviename">
+
+	<label for = "yearreleased"> Year Relased: </label>
+	<input type = "text" class = "form-control" id = "yearreleased" name = "yearreleased">
+
+	<label for = "genre"> Genre: </label>
+	<input type = "text" class = "form-control" id = "genre" name = "genre">
+
+	<label for = "rating"> Rating: </label>
+	<input type = "text" class = "form-control" id = "rating" name = "rating">
+
+	<label for = "review"> Review: </label>
+	<input type = "text" class = "form-control" id = "review" name = "review">
+
+	<label for = "reviewer"> Reviewer: </label>
+	<input type = "text" class = "form-control" id = "reviewer" name = "reviewer">
+	<br>
+     
+	<button type="submit" class = "btn btn-primary">Submit Rating</button>
+	</div>
+    </form>
+
+{% endblock %}

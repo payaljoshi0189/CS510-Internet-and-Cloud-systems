@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<style type="text/css">
+			.navbar {
+				margin-bottom:30px;
+			}
+</style>
+<nav class= "navbar navbar-expand-md navbar-dark bg-dark">
+			<a class = "navbar-brand" href="{{ url_for('home') }}">Movie Review</a>
+		<div class = "navbar-collapse collapse" id = "navbar-items">
+			<ul class = "navbar-nav mr-auto">
+				<li class= "nav-item active"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+				<li class= "nav-item "><a class="nav-link" href="{{ url_for('list') }}">List reviews</a></li>
+				<li class= "nav-item"><a class="nav-link" href="{{ url_for('add') }}">Submit a review</a></li>
+				<li class = "nav-item"><a class="nav-link" href="{{ url_for('upload_photo') }}">Upload a photo</a></li>
+			</ul>
+		</div>	
+</nav>
+<div class = "jumbotron jumbotron-fluid">
+		<div class = "container" style = "margin-left:32px">
+			<h1>Welcome to our movie review app!</h1>
+			<p>You can look at a list of movie reviews, submit your own review, or upload a photo and have a review recommended to you based on the photo!</p>
+		</div>
+</div>
+
+<div class = "container">
+	<div class= "row">
+		
+			<div class = "col-md-4">
+				<h2>View Reviews</h2>
+					<p>
+						List all the available movie reviews.<br>
+						We recommend movies based on their reviews.<br>
+						Look for movies with a thumbs up sign!!
+					</p>
+					<p> <a href = "{{ url_for('list') }}" class = "btn btn-secondary">more details »</a></p>
+			</div>
+			<div class = "col-md-4">
+				<h2>Submit a review</h2>
+				<p>
+					Do you wish to submit a review?<br>
+					You can do so right here!!<br><br>
+				</p>
+				<p> <a href = "{{ url_for('add') }}" class = "btn btn-secondary">more details »</a></p>
+			</div>
+			<div class = "col-md-4">
+				<h2>Upload a photo</h2>
+					<p>
+						Want to see recommended movies for a movie character?<br>
+						Upload a photo, and see our recommendation engine do some magic here!
+					</p>
+					<p> <a href = "{{ url_for('upload_photo') }}" class = "btn btn-secondary">more details »</a> </p>
+			</div>
+	</div>
+		
+</div>
+
+{% endblock %}
